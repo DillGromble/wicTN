@@ -29,6 +29,7 @@ class App extends Component {
     }
 
     this.handleChoices = this.handleChoices.bind(this)
+    this.handlePlusButton = this.handlePlusButton.bind(this)
     this.fb = firebase.initializeApp(secrets);
     var database = firebase.database();
     database.ref('/Stores').once('value').then((snapshot) => {
@@ -43,7 +44,14 @@ class App extends Component {
   }
   handleChoices() {
     this.setState({
-      choiceList: !this.state.choiceList
+      choiceList: !this.state.choiceList,
+      plusList: false
+    })
+  }
+  handlePlusButton() {
+    this.setState({
+      plusList: !this.state.plusList,
+      choiceList: false
     })
   }
 
@@ -56,9 +64,11 @@ class App extends Component {
         <div className="nav-container">
           <img src={logo} className="App-logo" alt="logo for WIC TN" />
           <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
-          <img src={addBtn} className="Add-btn" alt="add button" />
+          <img src={addBtn} className="Add-btn" alt="add button" onClick={this.handlePlusButton} />
           <div className="list-container">
             { this.state.choiceList && <OptionsList /> }
+            { this.state.plusList && <Item /> }
+            { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
           </div>
         </div>
