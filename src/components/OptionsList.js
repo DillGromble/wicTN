@@ -1,13 +1,14 @@
 import React from 'react'
-import EbtIcon from '../assets/ebt-icon.svg'
-import SnapIcon from '../assets/snap-icon.svg'
-import WicIcon from '../assets/wic-icon.svg'
+import EbtIconLg from '../assets/ebt-icon-lg.svg'
+import SnapIconLg from '../assets/snap-icon-lg.svg'
+import WicIconLg from '../assets/wic-icon-lg.svg'
+
 
 const OptionsList = () =>
     <ul className="icon-list">
-        <li className="icon wic"><img src={EbtIcon} alt="ebt icon" />one</li>
-        <li className="icon ebt"><img src={SnapIcon} alt="ebt icon" />two</li>
-        <li className="icon snap"><img src={WicIcon} alt="ebt icon" />three</li>
+        <li className="icon ebt"><img src={EbtIconLg} alt="ebt icon" />EBT</li>
+        <li className="icon snap"><img src={SnapIconLg} alt="snap icon" />SNAP</li>
+        <li className="icon wic"><img src={WicIconLg} alt="wic icon" />WIC</li>
     </ul>
 
 export default OptionsList
