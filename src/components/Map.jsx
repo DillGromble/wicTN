@@ -1,9 +1,17 @@
 import React from 'react'
+
+import * as firebase from 'firebase';
+import secrets from '../secrets.js'
 /* global google */
 
 export default class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
+
+    // this.fb = firebase.initializeApp(secrets);
+    // const database = firebase.database();
+    // firebaseApp.database().ref('Stores/').set({})
+
 
     this.state = {
       center: new google.maps.LatLng(36.174465, -86.767960),
@@ -78,8 +86,6 @@ export default class GoogleMap extends React.Component {
       });
     });
 
-    console.log('testing marker', marker)
-    // To add the marker to the map, call setMap();
     marker.setMap(this.state.map);
   }
 

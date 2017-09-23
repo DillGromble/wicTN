@@ -13,7 +13,7 @@ import addBtn from './assets/add-btn-bars.svg'
 // Components
 import OptionsList from './components/OptionsList'
 import Item from './components/Item'
-import GoogleMap from './map.jsx'
+import GoogleMap from './components/Map'
 
 class App extends Component {
   allStores=[];
@@ -29,7 +29,7 @@ class App extends Component {
 
     this.handleChoices = this.handleChoices.bind(this)
     this.fb = firebase.initializeApp(secrets);
-    var database = firebase.database();
+    const database = firebase.database();
     database.ref('/Stores').once('value').then((snapshot) => {
       var val = snapshot.val();
       for(let key in val){
