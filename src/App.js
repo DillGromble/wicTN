@@ -24,12 +24,13 @@ class App extends Component {
       wic: true,
       ebt: true,
       snap: true,
-      choiceList: false,
+      hamburgerList: false,
       plusList: false
     }
 
-    this.handleChoices = this.handleChoices.bind(this)
+    this.handleHamburger = this.handleHamburger.bind(this)
     this.handlePlusButton = this.handlePlusButton.bind(this)
+    this.handleHamburgerItemClick = this.handleHamburgerItemClick.bind(this)
     this.fb = firebase.initializeApp(secrets);
     var database = firebase.database();
     database.ref('/Stores').once('value').then((snapshot) => {
@@ -42,31 +43,39 @@ class App extends Component {
   getStores(filters){
     return this.allStores;
   }
-  handleChoices() {
+  handleHamburger() {
     this.setState({
-      choiceList: !this.state.choiceList,
+      hamburgerList: !this.state.hamburgerList,
       plusList: false
     })
   }
   handlePlusButton() {
     this.setState({
       plusList: !this.state.plusList,
-      choiceList: false
+      hamburgerList: false
+    })
+  }
+  handleHamburgerItemClick(e) {
+    let name = e.target.name
+    let value = this.state.name
+    this.setState({
+      [name]: !value
     })
   }
 
   render() {
     // const places = this.props.places
+    const { ebt, snap, wic } = this.state
     const { places } = { places: [{name: "Joe's Market", adddress: "123 Main St, Nashville, TN 37212"}, {name: "Kroger", address: "5544 Old Hickory Blvd, Hermitage, TN 37076"}]}
     const items = places.map((place, i) => <Item key={i} name={place.name} address={place.address} />)
     return (
       <div className="container">
         <div className="nav-container">
           <img src={logo} className="App-logo" alt="logo for WIC TN" />
-          <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
+          <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleHamburger} />
           <img src={addBtn} className="Add-btn" alt="add button" onClick={this.handlePlusButton} />
           <div className="list-container">
-            { this.state.choiceList && <OptionsList /> }
+            { this.state.hamburgerList && <OptionsList {...{ebt, snap, wic}} handleClick={this.handleHamburgerItemClick} /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
