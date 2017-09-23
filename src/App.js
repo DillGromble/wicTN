@@ -24,11 +24,11 @@ class App extends Component {
       wic: true,
       ebt: true,
       snap: true,
-      choiceList: false,
+      hamburgerList: false,
       plusList: false
     }
 
-    this.handleChoices = this.handleChoices.bind(this)
+    this.handleHamburger = this.handleHamburger.bind(this)
     this.handlePlusButton = this.handlePlusButton.bind(this)
     this.fb = firebase.initializeApp(secrets);
     var database = firebase.database();
@@ -42,16 +42,16 @@ class App extends Component {
   getStores(filters){
     return this.allStores;
   }
-  handleChoices() {
+  handleHamburger() {
     this.setState({
-      choiceList: !this.state.choiceList,
+      hamburgerList: !this.state.hamburgerList,
       plusList: false
     })
   }
   handlePlusButton() {
     this.setState({
       plusList: !this.state.plusList,
-      choiceList: false
+      hamburgerList: false
     })
   }
 
@@ -64,10 +64,10 @@ class App extends Component {
       <div className="container">
         <div className="nav-container">
           <img src={logo} className="App-logo" alt="logo for WIC TN" />
-          <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
+          <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleHamburger} />
           <img src={addBtn} className="Add-btn" alt="add button" onClick={this.handlePlusButton} />
           <div className="list-container">
-            { this.state.choiceList && <OptionsList {...{ebt, snap, wic}} /> }
+            { this.state.hamburgerList && <OptionsList {...{ebt, snap, wic}} /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
