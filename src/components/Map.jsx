@@ -62,13 +62,21 @@ export default class GoogleMap extends React.Component {
 
     const getDetails = this.state.service.getDetails.bind(this.state.service)
 
+    const createContent = (store) => (
+      `${store.name} <br />
+        ${store.adr_address} <br />
+        ${store.formatted_phone_number} <br />
+        <a href=${store.website}> ${store.website} </a>`
+    )
+
     google.maps.event.addListener(marker, 'click', () => {
       getDetails(place, (result, status) => {
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
           console.error(status);
           return;
         }
-        infoWindow.setContent(...result);
+        console.log(result)
+        infoWindow.setContent(createContent(result));
         infoWindow.open(this.state.map, marker);
       });
     });
