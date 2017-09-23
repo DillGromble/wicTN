@@ -6,7 +6,7 @@ import secrets from './secrets.js'
 import './App.css';
 
 // Images
-import logo from './assets/logo.svg';
+import logo from './assets/snapShop-logo.png';
 import hamburger from './assets/hamburger-btn.svg'
 import addBtn from './assets/add-btn-bars.svg'
 
