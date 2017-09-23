@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import * as firebase from 'firebase';
 
 // CSS
 import './App.css';
+import secrets from './secrets.js'
 
 // Images
 import logo from './assets/logo.svg';
@@ -12,6 +14,7 @@ import addBtn from './assets/add-btn-bars.svg'
 import OptionsList from './components/OptionsList'
 
 class App extends Component {
+  allStores=[];
   constructor(props){
     super(props)
 
@@ -23,8 +26,18 @@ class App extends Component {
     }
 
     this.handleChoices = this.handleChoices.bind(this)
+    this.fb = firebase.initializeApp(secrets);
+    var database = firebase.database();
+    database.ref('/Stores').once('value').then((snapshot) => {
+      var val = snapshot.val();
+      for(let key in val){
+        this.allStores[key] = val[key];
+      }
+    });
   }
-
+  getStores(filters){
+    return this.allStores;
+  }
   handleChoices() {
     this.setState({
       choiceList: !this.state.choiceList
