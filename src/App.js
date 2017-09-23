@@ -29,13 +29,18 @@ class App extends Component {
 
     this.handleChoices = this.handleChoices.bind(this)
     this.fb = firebase.initializeApp(secrets);
-    var database = firebase.database();
-    database.ref('/Stores').once('value').then((snapshot) => {
+    this.db = firebase.database();
+    this.db.ref('/Stores').once('value').then((snapshot) => {
       var val = snapshot.val();
       for(let key in val){
         this.allStores[key] = val[key];
       }
     });
+  }
+  createStore(place){
+    //TODO check that the properties exist
+    if(!place.placeId) { return false; }
+    this.db.ref('/Stores/').push().set(place);
   }
   getStores(filters){
     return this.allStores;
