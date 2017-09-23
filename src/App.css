@@ -75,4 +75,30 @@ img {
   display: inline-block;
 }
 
+.item-container {
+  width: 100%;
+  position: relative;
+}
+
+.img-container {
+  width:75px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.item-img {
+  width: 100%;
+}
+
+.text-body {
+  position: absolute;
+  left: 95px;
+  top: 10px;
+}
+
+
+
+
+
 
