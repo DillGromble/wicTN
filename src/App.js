@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-// Images
-import EbtIcon from './assets/ebt-icon.svg'
-import SnapIcon from './assets/snap-icon.svg'
-import WicIcon from './assets/wic-icon.svg'
+// Components
+import OptionsList from './components/OptionsList'
 
 class App extends Component {
   constructor(props){
@@ -25,24 +23,13 @@ class App extends Component {
     })
   }
 
-  renderChooser() {
-    return (
-      <ul className="icon-list">
-        <li className="icon wic"><img src={EbtIcon} alt="ebt icon" />one</li>
-        <li className="icon ebt"><img src={SnapIcon} alt="ebt icon" />two</li>
-        <li className="icon snap"><img src={WicIcon} alt="ebt icon" />three</li>
-      </ul>
-    )
-  }
-
-
   render() {
     return (
       <div className="container">
         <div className="nav-container">
           <img src={logo} className="App-logo" alt="logo for WIC TN" />
           <div className="list-container">
-            {this.state.choiceList && this.renderChooser()}
+            {this.state.choiceList && <OptionsList />}
           </div>
         </div>
         <div id="map"></div>
