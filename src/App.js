@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import * as firebase from 'firebase';
-import secrets from './secrets.js'
+
+import dbRef from './firebase.config'
 
 // CSS
 import './App.css';
@@ -13,10 +13,9 @@ import addBtn from './assets/add-btn-bars.svg'
 // Components
 import OptionsList from './components/OptionsList'
 import Item from './components/Item'
-import GoogleMap from './map.jsx'
+import GoogleMap from './components/Map'
 
 class App extends Component {
-  allStores=[];
   constructor(props){
     super(props)
 
@@ -33,14 +32,25 @@ class App extends Component {
     this.handleEbt = this.handleEbt.bind(this)
     this.handleSnap = this.handleSnap.bind(this)
     this.handleWic = this.handleWic.bind(this)
-    this.fb = firebase.initializeApp(secrets);
-    var database = firebase.database();
     database.ref('/Stores').once('value').then((snapshot) => {
       var val = snapshot.val();
+    this.allStores = [];
+    this.db = dbRef
+    this.handleChoices = this.handleChoices.bind(this)
+
+    this.db.ref('/Stores').once('value').then(snapshot => {
+      const val = snapshot.val();
       for(let key in val){
         this.allStores[key] = val[key];
       }
     });
+
+    this.createStore = this.createStore.bind(this)
+  }
+  createStore(place){
+    //TODO check that the properties exist
+    if(!place.placeId) { return false; }
+    this.db.ref('/Stores/').push().set(place);
   }
   getStores(filters){
     return this.allStores;
@@ -91,7 +101,7 @@ class App extends Component {
             { this.state.plusList && <Item /> }
           </div>
         </div>
-        <div id="map"><GoogleMap /></div>
+        <div id="map"><GoogleMap create={this.createStore} /></div>
       </div>
     );
   }
