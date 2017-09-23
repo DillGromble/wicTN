@@ -57,6 +57,7 @@ class App extends Component {
 
   render() {
     // const places = this.props.places
+    const { ebt, snap, wic } = this.state
     const { places } = { places: [{name: "Joe's Market", adddress: "123 Main St, Nashville, TN 37212"}, {name: "Kroger", address: "5544 Old Hickory Blvd, Hermitage, TN 37076"}]}
     const items = places.map((place, i) => <Item key={i} name={place.name} address={place.address} />)
     return (
@@ -66,7 +67,7 @@ class App extends Component {
           <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
           <img src={addBtn} className="Add-btn" alt="add button" onClick={this.handlePlusButton} />
           <div className="list-container">
-            { this.state.choiceList && <OptionsList /> }
+            { this.state.choiceList && <OptionsList {...{ebt, snap, wic}} /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
