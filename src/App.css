@@ -93,7 +93,8 @@ img {
 }
 
 .loc-graphic,
-.icon-img {
+.icon-img,
+.add-icon {
   width: 100px;
   height: 100px;
   display: inline-block;
@@ -109,13 +110,33 @@ img {
   vertical-align: top;
   display: inline-block;
 }
-
+h3 {
+  padding: 10px;
+  border-bottom: 1px solid #bbb;
+}
+h4 {
+  text-align: center;
+  padding-top: 10px;
+  color: white;
+}
 .icon-text {
   height: 100px;
   line-height:100px;
 }
 
-
+.add-item-container {
+  background-color: #814FA0;
+}
+.add-item-content {
+  width: 360px;
+  margin: 0 auto;
+}
+.add-icon {
+  padding: 10px;
+}
+.add-icon:last-child {
+  border-right: none;
+}
 
 
 
