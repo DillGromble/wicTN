@@ -6,8 +6,9 @@ export default class GoogleMap extends React.Component {
     super(props)
 
     this.state = {
-      center: null,
-      map: null
+      center: new google.maps.LatLng(36.174465, -86.767960),
+      map: null,
+      userLoc: null
     }
   }
 
@@ -15,20 +16,14 @@ export default class GoogleMap extends React.Component {
     const success = pos => {
       const coords = pos.coords
       const center = new google.maps.LatLng(coords.latitude, coords.longitude);
-
-      this.setState({
-        center
-      })
+      this.state.map.setZoom(15)
+      this.state.map.setCenter(center) // TODO: move to button and pull center from state.userLoc
     }
 
     const error = err => {
       console.error(`ERROR(${err.code}): ${err.message}`);
-      const center = new google.maps.LatLng(36.174465, -86.767960); //nashville coords
-      this.setState({
-        center
-      })
+      // this.setState({ center })
     }
-
     navigator.geolocation.getCurrentPosition(success, error)
   }
 
@@ -38,17 +33,12 @@ export default class GoogleMap extends React.Component {
       center,
       zoom: 10
     });
-
-    this.setState({
-      map
-    })
+    this.setState({ map })
   }
 
   render() {
-    return(
-      <div ref="map">
-        <h1>test</h1>
-      </div>
+    return (
+        <div ref="map" style={{ 'height': '100vh' }} />
     )
   }
 }
