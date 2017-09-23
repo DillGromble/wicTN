@@ -76,46 +76,9 @@ export default class GoogleMap extends React.Component {
         }
         infoWindow.setContent(createContent(result));
         infoWindow.open(this.state.map, marker);
-
-
-        const request = {
-          location: this.state.center,
-          radius: '1128.497720',
-          type: ['food']
-        }
-
-        this.state.service.nearbySearch(request, (results, status) => {
-          console.log('got here')
-          if (status === google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-              getDetails(results[i], (place, status) => {
-                const fnObj = {
-                  placeId: place.place_id,
-                  name: place.name,
-                  address: place.formatted_address,
-                  lat: place.geometry.location.lat(),
-                  long: place.geometry.location.lng(),
-                  wic: true,
-                  ebt: true,
-                  snap: true
-                };
-                this.props.create(fnObj)
-              })
-            }
-          }
-        })
-
-
-
-
-
-
       });
     });
     marker.setMap(this.state.map);
-
-
-
   }
 
 
