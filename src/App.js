@@ -21,9 +21,11 @@ class App extends Component {
       snap: true,
       choiceList: false
     }
+
+    this.handleChoices = this.handleChoices.bind(this)
   }
 
-  handleChoices(e) {
+  handleChoices() {
     this.setState({
       choiceList: !this.state.choiceList
     })
@@ -34,7 +36,7 @@ class App extends Component {
       <div className="container">
         <div className="nav-container">
           <img src={logo} className="App-logo" alt="logo for WIC TN" />
-          <img src={hamburger} className="Hamburger" alt="hamburger" />
+          <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
           <img src={addBtn} className="Add-btn" alt="add button" />
           <div className="list-container">
             {this.state.choiceList && <OptionsList />}
