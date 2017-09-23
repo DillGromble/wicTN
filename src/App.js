@@ -16,7 +16,6 @@ import Item from './components/Item'
 import GoogleMap from './components/Map'
 
 class App extends Component {
-  allStores=[];
   constructor(props){
     super(props)
 
@@ -26,6 +25,8 @@ class App extends Component {
       snap: true,
       choiceList: false
     }
+
+    this.allStores = [];
 
     this.handleChoices = this.handleChoices.bind(this)
     this.fb = firebase.initializeApp(secrets);

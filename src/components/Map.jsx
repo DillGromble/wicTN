@@ -7,7 +7,6 @@ import secrets from '../secrets.js'
 export default class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
-    // createStore
 
     this.state = {
       center: new google.maps.LatLng(36.174465, -86.767960),
