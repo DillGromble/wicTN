@@ -45,6 +45,14 @@ Color scheme:
 .icon-img {
   width: 100px;
   display: inline-block;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+}
+
+.icon-img-color {
+  width: 100px;
+  display: inline-block;
+  filter:none;
 }
 
 .icon {
@@ -77,6 +85,7 @@ Color scheme:
 .item-container {
   width: 100%;
   border-bottom: 1px solid #bbb;
+  padding: 10px;
 }
 
 img {
