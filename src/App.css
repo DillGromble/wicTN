@@ -1,3 +1,13 @@
+/*************
+
+Color scheme:
+
+  Header/Nav-bar : #E2675B
+  Any white-space :  #eee
+  Drop down-add menu : #814FA0
+
+**************/
+
 * {
   list-style-type: none;
   text-decoration: none;
@@ -11,7 +21,7 @@
 
 .nav-container {
   width: 100%;
-  background-color: #444;
+  background-color: #E2675B;
 }
 
 .App-logo {
@@ -30,7 +40,7 @@
 #map {
   height: 100vh;
   width: 100%;
-  background-color: #ae9a9a;
+  background-color: white;
 }
 
 .icon {
@@ -38,5 +48,31 @@
   padding: 10px;
 }
 
-.wic {
+.Add-btn,
+.Hamburger {
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  float: right;
+  margin: 21px 10px 0px 0px;
 }
+
+.Add-btn:active,
+.Hamburger:active {
+  background-color: grey;
+  border: 10px solid grey;
+}
+
+.icon {
+  width: 100px;
+}
+img {
+  display: inline-block;
+}
+.option-text {
+  display: inline-block;
+}
+
+
