@@ -17,16 +17,18 @@ Color scheme:
 
 .container {
   width: 100%;
+  position: relative;
 }
 
 .nav-container {
   width: 100%;
+  height: 80px;
   background-color: #E2675B;
 }
 
 .App-logo {
   width: 200px;
-  padding: 20px 0px 20px 20px;
+  padding: 15px 0px 20px 20px;
 }
 
 .list-container {
@@ -35,10 +37,9 @@ Color scheme:
 }
 
 #map {
-  height: 100vh;
-  overflow-y: hidden;
   width: 100%;
-  background-color: white;
+  height: 718px;
+  overflow-y: hidden;
 }
 
 .icon-img {
@@ -68,7 +69,7 @@ Color scheme:
   height: 30px;
   width: 30px;
   float: right;
-  margin: 21px 10px 0px 0px;
+  margin: 15px 10px 0px 0px;
 }
 
 .Add-btn:active,
@@ -110,7 +111,7 @@ img {
   vertical-align: top;
   display: inline-block;
 }
-h3 {
+.options-instruction {
   padding: 10px;
   border-bottom: 1px solid #bbb;
 }

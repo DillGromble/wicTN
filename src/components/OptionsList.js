@@ -10,6 +10,10 @@ const OptionsList = (props) => {
 	snap = props.snap ? "icon-img-color" : "icon-img"
 	wic = props.wic ? "icon-img-color" : "icon-img"
 	return (
+		<div className="options-container">
+		<h3 className="options-instruction">
+			Select an icon below to filter results
+		</h3>
     <ul className="icon-list">
         <li className="icon ebt" name="ebt" onClick={props.handleEbt}>
 			<div className={ebt}>
@@ -36,6 +40,7 @@ const OptionsList = (props) => {
         	</div>
         </li>
     </ul>
+    </div>
 	)
 }
 

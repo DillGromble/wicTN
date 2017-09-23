@@ -86,7 +86,7 @@ export default class GoogleMap extends React.Component {
 
   render() {
     return (
-        <div ref="map" style={{ 'height': '100vh' }} />
+        <div id="map" ref="map" />
     )
   }
 }
