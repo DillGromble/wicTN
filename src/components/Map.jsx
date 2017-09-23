@@ -1,7 +1,6 @@
 import React from 'react'
 
-import * as firebase from 'firebase';
-import secrets from '../secrets.js'
+import App from '../App'
 /* global google */
 
 export default class GoogleMap extends React.Component {
@@ -72,7 +71,7 @@ export default class GoogleMap extends React.Component {
 
     google.maps.event.addListener(marker, 'click', () => {
       getDetails(place, (result, status) => {
-        const fbObj = {
+        const fnObj = {
           placeId: result.place_id,
           name: result.name,
           address: result.formatted_address,
@@ -83,7 +82,7 @@ export default class GoogleMap extends React.Component {
           snap: true
         };
 
-        // createStore(fnObj)
+        this.props.create(fnObj)
 
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
           console.error(status);
