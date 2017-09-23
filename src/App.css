@@ -1,24 +1,78 @@
-.App {
-  text-align: center;
+/*************
+
+Color scheme:
+
+  Header/Nav-bar : #E2675B
+  Any white-space :  #eee
+  Drop down-add menu : #814FA0
+
+**************/
+
+* {
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+}
+
+.nav-container {
+  width: 100%;
+  background-color: #E2675B;
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  width: 75px;
+  height: 75px;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.list-container {
+  width: 100px;
+  background-color: white;
+  float: right;
+  width: 100%;
 }
 
-.App-intro {
-  font-size: large;
+#map {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.icon {
+  font-size: 1.4em;
+  padding: 10px;
 }
+
+.Add-btn,
+.Hamburger {
+  background-color: white;
+  border: 10px solid white;
+  border-radius: 15px;
+  height: 40px;
+  width: 40px;
+  float: right;
+  margin: 21px 10px 0px 0px;
+}
+
+.Add-btn:active,
+.Hamburger:active {
+  background-color: grey;
+  border: 10px solid grey;
+}
+
+.icon {
+  width: 100px;
+}
+img {
+  display: inline-block;
+}
+.option-text {
+  display: inline-block;
+}
+
+
