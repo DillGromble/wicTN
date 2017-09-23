@@ -7,11 +7,7 @@ import secrets from '../secrets.js'
 export default class GoogleMap extends React.Component {
   constructor(props) {
     super(props)
-
-    // this.fb = firebase.initializeApp(secrets);
-    // const database = firebase.database();
-    // firebaseApp.database().ref('Stores/').set({})
-
+    // createStore
 
     this.state = {
       center: new google.maps.LatLng(36.174465, -86.767960),
@@ -77,6 +73,19 @@ export default class GoogleMap extends React.Component {
 
     google.maps.event.addListener(marker, 'click', () => {
       getDetails(place, (result, status) => {
+        const fbObj = {
+          placeId: result.place_id,
+          name: result.name,
+          address: result.formatted_address,
+          lat: result.geometry.location.lat(),
+          long: result.geometry.location.lng(),
+          wic: true,
+          ebt: true,
+          snap: true
+        };
+
+        // createStore(fnObj)
+
         if (status !== google.maps.places.PlacesServiceStatus.OK) {
           console.error(status);
           return;
