@@ -24,7 +24,8 @@ class App extends Component {
       wic: true,
       ebt: true,
       snap: true,
-      choiceList: false
+      choiceList: false,
+      plusList: false
     }
 
     this.handleChoices = this.handleChoices.bind(this)
@@ -47,6 +48,9 @@ class App extends Component {
   }
 
   render() {
+    // const places = this.props.places
+    const { places } = { places: [{name: "Joe's Market", adddress: "123 Main St, Nashville, TN 37212"}, {name: "Kroger", address: "5544 Old Hickory Blvd, Hermitage, TN 37076"}]}
+    const items = places.map((place, i) => <Item key={i} name={place.name} address={place.address} />)
     return (
       <div className="container">
         <div className="nav-container">
@@ -54,7 +58,8 @@ class App extends Component {
           <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleChoices} />
           <img src={addBtn} className="Add-btn" alt="add button" />
           <div className="list-container">
-            {this.state.choiceList && <OptionsList />}
+            { this.state.choiceList && <OptionsList /> }
+            { this.state.plusList && <Item /> }
           </div>
         </div>
         <div id="map"><GoogleMap /></div>
