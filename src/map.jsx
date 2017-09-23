@@ -8,7 +8,8 @@ export default class GoogleMap extends React.Component {
     this.state = {
       center: new google.maps.LatLng(36.174465, -86.767960),
       map: null,
-      userLoc: null
+      userLoc: null,
+      service: null
     }
   }
 
@@ -16,9 +17,38 @@ export default class GoogleMap extends React.Component {
     const success = pos => {
       const coords = pos.coords
       const center = new google.maps.LatLng(coords.latitude, coords.longitude);
+
+
+      // this will be tied to button.
       this.state.map.setZoom(15)
       this.state.map.setCenter(center) // TODO: move to button and pull center from state.userLoc
+      const request = {
+        location: center,
+        radius: '1155581.153000',
+        type: ['food']
+      };
+
+      this.state.service.nearbySearch(request, (results, status) => {
+        if (status == google.maps.places.PlacesServiceStatus.OK) {
+          for (var i = 0; i < results.length; i++) {
+            var place = results[i];
+            createMarker(results[i]);
+          }
+        }
+      }
     }
+
+    var marker = new google.maps.Marker({
+      position: myLatlng,
+      title:"Hello World!"
+  });
+
+  // To add the marker to the map, call setMap();
+  marker.setMap(map);
+
+
+
+
 
     const error = err => {
       console.error(`ERROR(${err.code}): ${err.message}`);
@@ -32,8 +62,9 @@ export default class GoogleMap extends React.Component {
     const map = new google.maps.Map(this.refs.map, {
       center,
       zoom: 10
-    });
-    this.setState({ map })
+    })
+    const service = new google.maps.places.PlacesService(map)
+    this.setState({ map, service })
   }
 
   render() {
