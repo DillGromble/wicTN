@@ -11,33 +11,24 @@ const OptionsList = (props) => {
 	wic = props.wic ? "icon-img-color" : "icon-img"
 	return (
     <ul className="icon-list">
-        <li className="icon ebt" name="ebt" onClick={props.handleClick}>
-			<div className="checkbox">
-				<input type="checkbox"  />
-			</div>
-        	<div className={ebt}>
+        <li className="icon ebt" name="ebt" onClick={props.handleEbt}>
+			<div className={ebt}>
         		<img src={EbtIconLg} alt="ebt icon" />
         	</div>
         	<div className="icon-text">
         		<h3>EBT</h3>
         	</div>
         </li>
-        <li className="icon snap" name="snap" onClick={props.handleClick}>
-			<div className="checkbox">
-				<input type="checkbox"  />
-			</div>
-        	<div className={snap}>
+        <li className="icon snap" name="snap" onClick={props.handleSnap}>
+			<div className={snap}>
         		<img src={SnapIconLg} alt="snap icon" />
         	</div>
         	<div className="icon-text">
         		<h3>SNAP</h3>
         	</div>
         </li>
-        <li className="icon wic" name="wic" onClick={props.handleClick}>
-			<div className="checkbox">
-				<input type="checkbox"  />
-			</div>
-        	<div className={wic}>
+        <li className="icon wic" name="wic" onClick={props.handleWic}>
+			<div className={wic}>
         		<img src={WicIconLg} alt="wic icon" />
         	</div>
         	<div className="icon-text">
