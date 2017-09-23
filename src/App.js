@@ -30,7 +30,9 @@ class App extends Component {
 
     this.handleHamburger = this.handleHamburger.bind(this)
     this.handlePlusButton = this.handlePlusButton.bind(this)
-    this.handleHamburgerItemClick = this.handleHamburgerItemClick.bind(this)
+    this.handleEbt = this.handleEbt.bind(this)
+    this.handleSnap = this.handleSnap.bind(this)
+    this.handleWic = this.handleWic.bind(this)
     this.fb = firebase.initializeApp(secrets);
     var database = firebase.database();
     database.ref('/Stores').once('value').then((snapshot) => {
@@ -55,11 +57,19 @@ class App extends Component {
       hamburgerList: false
     })
   }
-  handleHamburgerItemClick(e) {
-    let name = e.target.name
-    let value = this.state.name
+  handleWic() {
     this.setState({
-      [name]: !value
+      wic: !this.state.wic
+    })
+  }
+  handleEbt() {
+    this.setState({
+      ebt: !this.state.ebt
+    })
+  }
+  handleSnap() {
+    this.setState({
+      snap: !this.state.snap
     })
   }
 
@@ -75,7 +85,7 @@ class App extends Component {
           <img src={hamburger} className="Hamburger" alt="hamburger" onClick={this.handleHamburger} />
           <img src={addBtn} className="Add-btn" alt="add button" onClick={this.handlePlusButton} />
           <div className="list-container">
-            { this.state.hamburgerList && <OptionsList {...{ebt, snap, wic}} handleClick={this.handleHamburgerItemClick} /> }
+            { this.state.hamburgerList && <OptionsList {...{ebt, snap, wic}} handleEbt={this.handleEbt} handleSnap={this.handleSnap} handleWic={this.handleWic} /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
             { this.state.plusList && <Item /> }
