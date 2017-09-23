@@ -1,6 +1,5 @@
 import React from 'react'
 
-import App from '../App'
 /* global google */
 
 export default class GoogleMap extends React.Component {
@@ -33,7 +32,7 @@ export default class GoogleMap extends React.Component {
       }
 
       this.state.service.nearbySearch(request, (results, status) => {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
+        if (status === google.maps.places.PlacesServiceStatus.OK) {
           for (var i = 0; i < results.length; i++) {
             let place = results[i];
             this.createMarker(place, place.name);
