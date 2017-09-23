@@ -10,19 +10,25 @@ const OptionsList = () =>
         	<div className="icon-img">
         		<img src={EbtIconLg} alt="ebt icon" />
         	</div>
-        	<div className="icon-text">EBT</div>
+        	<div className="icon-text">
+        		<h3>EBT</h3>
+        	</div>
         </li>
         <li className="icon snap">
         	<div className="icon-img">
         		<img src={SnapIconLg} alt="snap icon" />
         	</div>
-        	<div className="icon-text">SNAP</div>
+        	<div className="icon-text">
+        		<h3>SNAP</h3>
+        	</div>
         </li>
         <li className="icon wic">
         	<div className="icon-img">
         		<img src={WicIconLg} alt="wic icon" />
         	</div>
-        	<div className="icon-text">WIC</div>
+        	<div className="icon-text">
+        		<h3>WIC</h3>
+        	</div>
         </li>
     </ul>
 

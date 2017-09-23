@@ -37,6 +37,7 @@ Color scheme:
 
 #map {
   height: 100vh;
+  overflow-y: hidden;
   width: 100%;
   background-color: white;
 }
@@ -45,9 +46,7 @@ Color scheme:
   width: 100px;
   display: inline-block;
 }
-.icon-text {
-  display: inline-block;
-}
+
 .icon {
   font-size: 1.4em;
   padding: 10px;
@@ -71,35 +70,42 @@ Color scheme:
   border: 10px solid grey;
 }
 
-img {
-  display: inline-block;
-}
 .option-text {
   display: inline-block;
 }
 
 .item-container {
   width: 100%;
-  position: relative;
+  border-bottom: 1px solid #bbb;
 }
 
-.img-container {
-  width:75px;
-  position: absolute;
-  top: 10px;
-  left: 10px;
+img {
+  max-width: 100%;
+  max-height: 100%;
 }
 
-.item-img {
-  width: 100%;
+.loc-graphic,
+.icon-img {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
 }
 
-.text-body {
-  position: absolute;
-  left: 95px;
-  top: 10px;
+.icon-img {
+  transform: rotateZ(45deg);
 }
 
+.text-body,
+.icon-text {
+  margin-left: 20px;
+  vertical-align: top;
+  display: inline-block;
+}
+
+.icon-text {
+  height: 100px;
+  line-height:100px;
+}
 
 
 
