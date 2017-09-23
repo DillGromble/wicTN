@@ -19,6 +19,12 @@ class App extends Component {
     }
   }
 
+  handleChoices(e) {
+    this.setState({
+      choiceList: !this.state.choiceList
+    })
+  }
+
   renderChooser() {
     return (
       <ul className="icon-list">
