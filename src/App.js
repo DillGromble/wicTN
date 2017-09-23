@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
+import secrets from './secrets.js'
 
 // CSS
 import './App.css';
-import secrets from './secrets.js'
 
 // Images
 import logo from './assets/logo.svg';
@@ -13,6 +13,7 @@ import addBtn from './assets/add-btn-bars.svg'
 // Components
 import OptionsList from './components/OptionsList'
 import Item from './components/Item'
+import GoogleMap from './map.jsx'
 
 class App extends Component {
   allStores=[];
@@ -56,7 +57,7 @@ class App extends Component {
             {this.state.choiceList && <OptionsList />}
           </div>
         </div>
-        <div id="map"></div>
+        <div id="map"><GoogleMap /></div>
       </div>
     );
   }
