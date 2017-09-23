@@ -10,6 +10,7 @@ import addBtn from './assets/add-btn-bars.svg'
 
 // Components
 import OptionsList from './components/OptionsList'
+import Item from './components/Item'
 
 class App extends Component {
   constructor(props){
