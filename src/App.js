@@ -40,7 +40,7 @@ class App extends Component {
     this.db.ref('/Stores').once('value').then(snapshot => {
       const val = snapshot.val();
       for(let key in val){
-        this.allStores[key] = val[key];
+        this.allStores.push(val[key]);
       }
     });
 
@@ -51,7 +51,21 @@ class App extends Component {
     if(!place.placeId) { return false; }
     this.db.ref('/Stores/').push().set(place);
   }
-  getStores(filters){
+  getStores(filters=false){
+    if(filters){
+      var returnStores=[];
+      for(var store of this.allStores){
+        var filterSatisfied = false;
+        for(var key in filters){
+          if(store[key] == true && !filterSatisfied){
+            returnStores.push(store);
+            filterSatisfied = true;
+            break;
+          }
+        }
+      }
+      return returnStores;
+    }
     return this.allStores;
   }
   handleHamburger() {
