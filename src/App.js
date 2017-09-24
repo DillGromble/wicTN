@@ -32,11 +32,10 @@ class App extends Component {
     this.handleEbt = this.handleEbt.bind(this)
     this.handleSnap = this.handleSnap.bind(this)
     this.handleWic = this.handleWic.bind(this)
-    database.ref('/Stores').once('value').then((snapshot) => {
-      var val = snapshot.val();
+
     this.allStores = [];
     this.db = dbRef
-    this.handleChoices = this.handleChoices.bind(this)
+    // this.handleChoices = this.handleChoices.bind(this)
 
     this.db.ref('/Stores').once('value').then(snapshot => {
       const val = snapshot.val();
