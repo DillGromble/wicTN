@@ -23,6 +23,13 @@ export default class GoogleMap extends React.Component {
       this.setState({ userLoc: here }, () => {
         this.state.map.setZoom(15)
         this.state.map.setCenter(here)
+
+        new google.maps.Marker({
+          map: this.state.map,
+          animation: google.maps.Animation.DROP,
+          position: {lat: coords.latitude, lng: coords.longitude},
+          label: 'Me'
+        });
       })
     }
     const error = err => console.error(`ERROR(${err.code}): ${err.message}`)
@@ -61,7 +68,7 @@ export default class GoogleMap extends React.Component {
 
     const getDetails = this.state.service.getDetails.bind(this.state.service)
 
-    const createContent = (store) => (
+    const createContent = store => (
       `${store.name} <br />
         ${store.adr_address} <br />
         ${store.formatted_phone_number} <br />

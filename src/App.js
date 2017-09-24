@@ -57,7 +57,7 @@ class App extends Component {
       for(var store of this.allStores){
         var filterSatisfied = false;
         for(var key in filters){
-          if(store[key] == true && !filterSatisfied){
+          if(store[key] === true && !filterSatisfied){
             returnStores.push(store);
             filterSatisfied = true;
             break;
